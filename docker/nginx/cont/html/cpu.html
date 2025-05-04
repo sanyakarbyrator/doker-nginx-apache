@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CPU Info</title>
+    <script>
+        function updateCpuInfo() {
+            fetch('/cpu.txt')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('cpu-info').textContent = data;
+                })
+                .catch(error => console.error('Error loading cpu.txt:', error));
+        }
+
+        setInterval(updateCpuInfo, 1000); // обновляем каждую секунду
+        window.onload = updateCpuInfo; // загружаем сразу при загрузке страницы
+    </script>
+</head>
+<body>
+    <h1>CPU Information</h1>
+    <pre id="cpu-info">Загрузка...</pre>
+</body>
+</html>
+

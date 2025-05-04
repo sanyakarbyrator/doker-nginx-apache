@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  apache:
+    build: ./apache
+    container_name: apache_info
+    ports:
+      - "8888:8888"
+    restart: unless-stopped
+    networks:
+      - task12
+
+  nginx:
+    build: ./nginx
+    container_name: nginx_proxy
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - apache
+    restart: unless-stopped
+    networks:
+      - task12
+
+networks:
+  task12:
+    driver: bridge
