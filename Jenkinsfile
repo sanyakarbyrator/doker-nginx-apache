@@ -45,9 +45,9 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                sshagent (credentials: ['tututu']) {
+                sshagent (credentials: ['ubuntu']) {
                     sh '''
-			ssh -o StrictHostKeyChecking=no ubuntu@3.235.160.170 << EOF
+			ssh -o StrictHostKeyChecking=no ubuntu@3.235.160.170 << 'EOF'
 			docker network create --driver bridge task16
 
 			docker pull sanyakarbyurator/apache_info:latest
