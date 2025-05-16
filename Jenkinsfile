@@ -54,11 +54,11 @@ pipeline {
 			docker pull sanyakarbyurator/nginx_info:latest
 
 			docker stop apache_info
-			docker rm apache_info
+			docker rm -f apache_info
 			docker run -d --name apache_info --network task16 -p 8888:8888 sanyakarbyurator/apache_info:latest
 
 			docker stop nginx_info
-			docker rm nginx_info
+			docker rm -f nginx_info
 			docker run -d --name nginx_info --network task16  -p 80:80 -p 443:443 sanyakarbyurator/nginx_info:latest
 
 			docker image prune -af --filter "until=24h"
