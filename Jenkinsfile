@@ -46,7 +46,7 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                sshagent (credentials: ['ssh-key-jenkins']) {
+                sshagent (credentials: ['tututu']) {
                     sh '''
 			ssh -o StrictHostKeyChecking=no ubuntu@YOUR_IP << EOF
 			docker network create --driver bridge task16
