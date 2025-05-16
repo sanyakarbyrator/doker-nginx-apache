@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Clone') {
             steps {
-                git url: 'https://github.com/youruser/yourrepo.git', branch: 'main'
+                git url: 'git@github.com:sanyakarbyrator/doker-nginx-apache.git', branch: 'main'
             }
         }
 
