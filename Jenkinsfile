@@ -1,8 +1,4 @@
 pipeline {
-    agent {
-        label 'any'
-    }
-
     environment {
         DOCKER = credentials('docker_hub')
     }
