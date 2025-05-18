@@ -5,7 +5,7 @@ pipeline {
 
     environment {
         DOCKER = credentials('docker_hub')
-        TARGET_HOST = env.BRANCH_NAME == 'main' ? '3.235.53.185' : 'IP_TEST_SER'
+        TARGET_HOST = env.BRANCH_NAME == 'main' ? '44.199.191.179' : '13.220.7.237'
     }
 
     stages {
