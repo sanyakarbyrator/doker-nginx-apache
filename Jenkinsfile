@@ -87,7 +87,9 @@ EOF
 
     post {
         always {
+            node {
             sh 'docker image prune -af --filter "until=24h"'
+            }
         }
     }
 }
