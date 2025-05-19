@@ -10,10 +10,10 @@ pipeline {
                 script {
                     if (env.BRANCH_NAME == 'main') {
                         env.AGENT_LABEL = 'prod'
-                        env.TARGET_HOST = '18.215.189.97'
+                        env.TARGET_HOST = '44.203.31.241'
                     } else if (env.BRANCH_NAME == 'test') {
                         env.AGENT_LABEL = 'test'
-                        env.TARGET_HOST = '13.220.7.237'
+                        env.TARGET_HOST = '34.236.255.110'
                     } else {
                         error "Unknown branch ${env.BRANCH_NAME}"
                     }
