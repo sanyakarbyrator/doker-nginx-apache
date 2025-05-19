@@ -31,7 +31,7 @@ pipeline {
         stage('Docker Login') {
             agent { label env.AGENT_LABEL }
             steps {
-                sh 'docker login -u "$DOCKER_USR" -p "$DOCKER_PSW"'
+                sh 'sudo ocker login -u "$DOCKER_USR" -p "$DOCKER_PSW"'
             }
         }
 
@@ -39,8 +39,8 @@ pipeline {
             agent { label env.AGENT_LABEL }
             steps {
                 sh '''
-                    docker build -t sanyakarbyurator/apache_info:latest ./docker/apache
-                    docker build -t sanyakarbyurator/nginx_info:latest ./docker/nginx
+                    sudo docker build -t sanyakarbyurator/apache_info:latest ./docker/apache
+                    sudo docker build -t sanyakarbyurator/nginx_info:latest ./docker/nginx
                 '''
             }
         }
@@ -49,8 +49,8 @@ pipeline {
             agent { label env.AGENT_LABEL }
             steps {
                 sh '''
-                    docker push sanyakarbyurator/apache_info:latest
-                    docker push sanyakarbyurator/nginx_info:latest
+                    sudo docker push sanyakarbyurator/apache_info:latest
+                    sudo docker push sanyakarbyurator/nginx_info:latest
                 '''
             }
         }
@@ -58,7 +58,7 @@ pipeline {
         stage('Clean Images') {
             agent { label env.AGENT_LABEL }
             steps {
-                sh 'docker system prune -af --filter "until=24h"'
+                sh 'sudo docker system prune -af --filter "until=24h"'
             }
         }
 
