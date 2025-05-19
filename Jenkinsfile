@@ -31,7 +31,7 @@ pipeline {
         stage('Docker Login') {
             agent { label env.AGENT_LABEL }
             steps {
-                sh 'sudo ocker login -u "$DOCKER_USR" -p "$DOCKER_PSW"'
+                sh 'sudo docker login -u "$DOCKER_USR" -p "$DOCKER_PSW"'
             }
         }
 
