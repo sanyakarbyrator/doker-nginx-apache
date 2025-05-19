@@ -73,9 +73,9 @@ sudo docker pull sanyakarbyurator/apache_info:latest
 sudo docker pull sanyakarbyurator/nginx_info:latest
 sudo docker stop apache_info 
 sudo docker rm -f apache_info 
-sudo docker run -d --name apache_info --network task16 -p 8888:8888 sanyakarbyurator/apache_info:latest
 sudo docker stop nginx_info
-sudo docker rm -f nginx_info 
+sudo docker rm -f nginx_info
+sudo docker run -d --name apache_info --network task16 -p 8888:8888 sanyakarbyurator/apache_info:latest
 sudo docker run -d --name nginx_info --network task16 -p 80:80 -p 443:443 sanyakarbyurator/nginx_info:latest
 sudo docker image prune -af --filter "until=24h"
 EOF
