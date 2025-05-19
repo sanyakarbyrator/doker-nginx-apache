@@ -58,7 +58,7 @@ pipeline {
         stage('Clean Images') {
             agent { label env.AGENT_LABEL }
             steps {
-                sh 'docker image prune -af --filter "until=24h"'
+                sh 'docker system prune -af --filter "until=24h"'
             }
         }
 
@@ -85,10 +85,4 @@ EOF
         }
     }
 
-    post {
-        always {
-            sh 'sudo docker image prune -af --filter "until=24h"'
-
-        }
-    }
 }
