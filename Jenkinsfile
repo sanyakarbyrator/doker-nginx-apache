@@ -13,7 +13,7 @@ pipeline {
                         env.TARGET_HOST = '18.215.189.97'
                     } else if (env.BRANCH_NAME == 'test') {
                         env.AGENT_LABEL = 'test'
-                        env.TARGET_HOST = '3.80.7.185'
+                        env.TARGET_HOST = '3.231.207.185'
                     } else {
                         error "Unknown branch ${env.BRANCH_NAME}"
                     }
